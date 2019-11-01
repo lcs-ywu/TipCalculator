@@ -17,7 +17,11 @@ let tipPercentageAsString = tipPercentage.text!
 let splitBetweenHowManyPeopleAsString = splitBetweenHowManyPeople.text!
 
 //Convert strings to double data type
-let billAmountAsDouble = Double(billAmountAsString)
+let billAmountAsDouble = Double(billAmountAsString)!
+let tipPercentageAsDouble = Double(tipPercentageAsString)!
+let splitBetweenHowManyPeopleAsDouble = Double(splitBetweenHowManyPeopleAsString)!
 
+//Calculate the tip
+let tipAmountInDollars = billAmountAsDouble * tipPercentageAsDouble
 
 
