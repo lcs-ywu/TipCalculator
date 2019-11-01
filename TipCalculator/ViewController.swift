@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+   
+    @IBOutlet weak var amountOfBill: UITextField!
+    @IBOutlet weak var tipPercentage: UITextField!
+    @IBOutlet weak var splitBetwwenHowManyPeople: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
