@@ -32,11 +32,20 @@ class ViewController: UIViewController {
     
     @IBAction func calculateTip(_ sender: Any) {
         
+        // Done editing, so hide the keyboard
+        view.endEditing(true)
+        
         // 1. Get each input value as a string
-        let incomeAsString = amountOfBill.text!
+        guard let incomeAsString = amountOfBill.text else {
+            outputTipAmount.text = "Please enter a tip amount."
+            return
+        }
         
         // 2. Convert values to Double
-        let incomeAsDouble = Double(incomeAsString)!
+        guard let incomeAsDouble = Double(incomeAsString) else {
+            outputTipAmount.text = "Please enter a numeric tip amount."
+            return
+        }
         
         // 3. Calculate the tip
         
