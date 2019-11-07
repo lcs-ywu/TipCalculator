@@ -40,15 +40,25 @@ class ViewController: UIViewController {
             outputTipAmount.text = "Please enter a tip amount."
             return
         }
+        guard let tipPercentageAsString = tipPercentage.text else {
+            outputTipAmount.text = "please enter a tip percentage."
+            return
+        }
+
         
         // 2. Convert values to Double
         guard let incomeAsDouble = Double(incomeAsString) else {
             outputTipAmount.text = "Please enter a numeric tip amount."
             return
         }
+        guard let tipPersentageAsDouble = Double(tipPercentageAsString) else {
+            outputTipAmount.text = "Please enter a numeric tip percentage."
+            return
+        }
+        
         
         // 3. Calculate the tip
-        
+       
         // 4. Report the results
         
         
