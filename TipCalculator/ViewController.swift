@@ -41,7 +41,11 @@ class ViewController: UIViewController {
             return
         }
         guard let tipPercentageAsString = tipPercentage.text else {
-            outputTipAmount.text = "please enter a tip percentage."
+            outputTipAmount.text = "Please enter a tip percentage."
+            return
+        }
+        guard let splitBetwwenHowManyPeopleAsString = splitBetwwenHowManyPeople.text else {
+            outputTipAmount.text = "Please enter the number of people."
             return
         }
 
@@ -55,12 +59,25 @@ class ViewController: UIViewController {
             outputTipAmount.text = "Please enter a numeric tip percentage."
             return
         }
-        
+        guard let splitBetwwenHowManyPeopleAsDouble = Double(splitBetwwenHowManyPeopleAsString)  else {
+            outputTipAmount.text = "Please enter a numeric number of people"
+            return
+        }
         
         // 3. Calculate the tip
-       
-        // 4. Report the results
+        let tipPercentInDecimal:Double = tipPersentageAsDouble/100
+        let tipInDollars = tipPercentInDecimal*incomeAsDouble
+        let tipInCents = 100*tipInDollars
+        let tipInCentsAsInt = Int(tipInCents)
+        let finalTipNumber = Double(tipInCentsAsInt)/100
+        let tipPerPerson = finalTipNumber/splitBetwwenHowManyPeopleAsDouble
+        let tipPerPersonInCents = 100*tipPerPerson
+        let tipPerPersonInCentsAsInt = Int(tipPerPersonInCents)
+        let finalTipNumberPerPerson = Double(tipPerPersonInCentsAsInt)/100
         
+        // 4. Report the results
+        outputTipPerPerson.text = ("$\(finalTipNumberPerPerson)")
+        outputTipAmount.text = ("$\(finalTipNumber)")
         
     }
     
