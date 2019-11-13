@@ -75,9 +75,14 @@ class ViewController: UIViewController {
         let tipPerPersonInCentsAsInt = Int(tipPerPersonInCents)
         let finalTipNumberPerPerson = Double(tipPerPersonInCentsAsInt)/100
         
+        // 3.5
+        // Reformat as currency
+        let finalTipNumberAsCurrency = String(format: "%.2f", finalTipNumber)
+        let finalTipNumberPerPersonAsCurrency = String(format: "%4.2f", finalTipNumberPerPerson)
+
         // 4. Report the results
-        outputTipPerPerson.text = ("$\(finalTipNumberPerPerson)")
-        outputTipAmount.text = ("$\(finalTipNumber)")
+        outputTipAmount.text = ("$\(finalTipNumberAsCurrency)")
+        outputTipPerPerson.text = ("$\(finalTipNumberPerPersonAsCurrency)")
         
     }
     
